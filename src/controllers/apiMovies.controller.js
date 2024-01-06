@@ -60,6 +60,8 @@ module.exports = {
     store : async (req,res) => {
         try {
 
+            console.log(req.body,'<<<<<<<<<');
+
             const {title,rating,release_date,awards,length,genre_id, actors} = req.body;
 
             if([title,rating,release_date,awards].includes('' || undefined)){
@@ -71,8 +73,8 @@ module.exports = {
             return res.status(200).json({
                 ok : true,
                 message : 'Pelicula agregada con éxito',
-                url : `${req.protocol}://${req.get('host')}/api/v1/movies/${movie.id}`
-
+                url : `${req.protocol}://${req.get('host')}/api/v1/movies/${movie.id}`,
+                data : movie
             })
     
         } catch (error) {

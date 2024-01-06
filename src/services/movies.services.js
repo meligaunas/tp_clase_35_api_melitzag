@@ -102,7 +102,7 @@ const storeMovie = async (dataMovie, actors) => {
         const newMovie = await db.Movie.create(dataMovie);
 
         if(actors){
-            const actorsDB = actors.map(actor => {
+            const actorsDB = actors.map((actor) => {
                 return {
                     movie_id : newMovie.id,
                     actor_id : actor
